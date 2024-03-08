@@ -15,3 +15,10 @@ variables:
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'Naimisha Development Subscription(1)(1f03edf1-9621-4d79-8840-6ddfac2bf6f6)'
+    appType: 'webApp'
+    appName: 'WebAppli11'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    deploymentMethod: 'auto'
